@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MercariTask</string>
+    <string name="sell">Sell</string>
+    <string name="no_data_available">No Data Available</string>
+</resources>

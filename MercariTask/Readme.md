@@ -1,0 +1,2 @@
+1. I hope my solution would suites both Situations B and C. 
+   I was implemented solution using Android Architecture components (LiveData, ViewModel etc). It will shows basic structre and maintain of a Project (B) and my skills about how using Architecture components, Espresso test cases.

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.mercaritask.viewmodel.MainViewModel" />
+    </data>
+
+    <RelativeLayout style="@style/Match">
+
+        <LinearLayout
+            style="@style/Match"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
+                style="@style/TabLayout"
+                android:visibility="@{(!viewModel.isTabsLoading&amp;&amp;!viewModel.isTabsEmpty)?View.VISIBLE:View.GONE}" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                style="@style/Match"
+                android:fadingEdge="none"
+                android:overScrollMode="never"
+                android:visibility="@{!viewModel.isLoading?View.VISIBLE:View.GONE}" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/no_data_tv"
+            style="@style/Wrap"
+            android:layout_centerInParent="true"
+            android:text="@string/no_data_available"
+            android:visibility="@{viewModel.isTabsEmpty||viewModel.isEmpty?View.VISIBLE:View.GONE}" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Wrap"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.isTabsLoading||viewModel.isLoading?View.VISIBLE:View.GONE}" />
+    </RelativeLayout>
+</layout>

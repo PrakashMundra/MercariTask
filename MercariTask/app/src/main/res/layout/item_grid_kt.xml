@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.mercaritask.data.model.TabDataKt" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        style="@style/MatchWidth"
+        card_view:cardCornerRadius="@dimen/elevation"
+        card_view:cardElevation="@dimen/elevation"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+            style="@style/MatchWidth"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <FrameLayout style="@style/MatchWidth">
+
+                <com.mercaritask.widget.GridItemLayout
+                    style="@style/MatchWidth"
+                    android:contentDescription="@null"
+                    app:imageUrl="@{data.name}" />
+
+                <TextView
+                    style="@style/Wrap"
+                    android:layout_gravity="bottom"
+                    android:padding="@dimen/grid_item_padding"
+                    android:text="@{data.name}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@android:color/white" />
+            </FrameLayout>
+
+            <LinearLayout
+                style="@style/MatchWidth"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/grid_item_padding">
+
+                <com.mercaritask.widget.CountWidgetKt
+                    style="@style/Wrap"
+                    app:countKt="@{data.getLikes}"
+                    app:icon="@drawable/ic_like" />
+
+                <Space
+                    android:layout_width="@dimen/grid_item_padding"
+                    android:layout_height="wrap_content" />
+
+                <com.mercaritask.widget.CountWidgetKt
+                    style="@style/Wrap"
+                    app:countKt="@{data.getComments}"
+                    app:icon="@drawable/ic_comment" />
+
+                <Space style="@style/WeightWidthWarpWidth" />
+
+                <TextView
+                    android:id="@+id/count"
+                    style="@style/CountText"
+                    android:text="@{data.getPrice}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="100dp"
+            android:layout_height="58dp"
+            android:background="@drawable/badge_soldout" />
+    </android.support.v7.widget.CardView>
+</layout>
